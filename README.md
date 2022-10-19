@@ -6,8 +6,13 @@ Provides a way to pass data through the component tree without having to pass pr
 
 There's a built-in Hook provided by React called `useContext` that allows any descendent component to gain access to the value on a Context Provider. It also subscribes the component that uses `useContext` to be re-rendered anytime the value of the context changes.
 
-
 **Reducer**
+
+A Reducer takes a state and an action as arguments, and it returns a new state.
+
+`useReducer` is a React hook which enables the use of the Reducer pattern. `useReducer` is generally used in place of useState in a component.
+
+When we implement the `useReducer` hook, we gain access to a function called dispatch. Dispatch takes Actions, and send them to the Reducer. Dispatch calls the Reducer with the correct state. 
 
 ## Project Setup
 

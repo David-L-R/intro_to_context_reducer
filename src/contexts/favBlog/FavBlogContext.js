@@ -6,7 +6,9 @@ const FavBlogPostsContext = createContext();
 const FavBlogPostsContextProvider = ({ children }) => {
   return (
     // the Provider gives access to the context to its children
-    <FavBlogPostsContext.Provider>{children}</FavBlogPostsContext.Provider>
+    <FavBlogPostsContext.Provider value={null}>
+      {children}
+    </FavBlogPostsContext.Provider>
   );
 };
 // custom hook to use the context
