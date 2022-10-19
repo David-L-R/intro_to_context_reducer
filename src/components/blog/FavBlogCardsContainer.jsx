@@ -10,11 +10,7 @@ const FavBlogCardsContainer = ({ sectionTitle }) => {
     <Container className="w-100 mt-5 p-5 cards-container shadow">
       <h1 className="w-100 text-center">{sectionTitle}</h1>
       {favBlogs?.map((blogPost) => (
-        <BlogCard
-          blogPost={blogPost}
-          key={blogPost.id}
-          buttonText="Remove from favorites"
-        />
+        <BlogCard blogPost={blogPost} key={blogPost.id} />
       ))}
     </Container>
   );
