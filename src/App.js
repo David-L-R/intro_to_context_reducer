@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BlogContextProvider } from "./contexts/blog/BlogContext";
-import { FavBlogPostsContextProvider } from "./contexts/favBlog/FavBlogContext";
+import { BlogPostsProvider } from "./contexts/blog/BlogContext";
+import { FavBlogPostsProvider } from "./contexts/favBlog/FavBlogContext";
 
 import NavBar from "./components/nav/NavBar";
 import FavBlogCardsContainer from "./components/blog/FavBlogCardsContainer";
@@ -11,13 +11,13 @@ function App() {
   return (
     <>
       <NavBar />
-      <BlogContextProvider>
-        <FavBlogPostsContextProvider>
+      <BlogPostsProvider>
+        <FavBlogPostsProvider>
           <FavBlogCardsContainer sectionTitle="Favorite Blog Posts" />
 
           <BlogCardsContainer sectionTitle="All Blog Posts" />
-        </FavBlogPostsContextProvider>
-      </BlogContextProvider>
+        </FavBlogPostsProvider>
+      </BlogPostsProvider>
     </>
   );
 }

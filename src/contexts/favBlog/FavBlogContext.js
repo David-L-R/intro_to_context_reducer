@@ -3,6 +3,8 @@ import React, { createContext, useContext, useReducer } from "react";
 // create context
 const FavBlogPostsContext = createContext();
 
+//The reducer function contains your custom state logic
+//and the initialState can be a simple value but generally will contain an object.
 const initialState = { favBlogs: [] };
 
 function favBlogReducer(state, action) {
@@ -24,7 +26,11 @@ function favBlogReducer(state, action) {
   }
 }
 
-const FavBlogPostsContextProvider = ({ children }) => {
+const FavBlogPostsProvider = ({ children }) => {
+  //The useReducer Hook accepts two arguments.
+  //useReducer(<reducer>, <initialState>)
+  //The useReducer Hook returns the current stateand a dispatchmethod.
+
   const [state, dispatch] = useReducer(favBlogReducer, initialState);
   const value = { favBlogs: state.favBlogs, dispatch };
 
@@ -49,8 +55,4 @@ const useFavBlogPostsContext = () => {
   return context;
 };
 
-export {
-  FavBlogPostsContext,
-  FavBlogPostsContextProvider,
-  useFavBlogPostsContext,
-};
+export { FavBlogPostsContext, FavBlogPostsProvider, useFavBlogPostsContext };

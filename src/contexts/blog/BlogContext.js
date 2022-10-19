@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 // create context
 const BlogContext = createContext();
 
-const BlogContextProvider = ({ children }) => {
+const BlogPostsProvider = ({ children }) => {
   const [blogPosts, setBlogPosts] = useState([]);
   const fetchBlogPosts = async () => {
     try {
@@ -37,4 +37,4 @@ const useBlogContext = () => {
   return context;
 };
 
-export { BlogContext, BlogContextProvider, useBlogContext };
+export { BlogContext, BlogPostsProvider, useBlogContext };

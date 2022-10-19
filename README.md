@@ -46,13 +46,13 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 const BlogContext = createContext();
 ```
 
-3. Create a `BlogContextProvider` that takes in an argument of `children` and returns the `Provider` component.
+3. Create a `BlogPostsProvider` that takes in an argument of `children` and returns the `Provider` component.
 
 **Question:** ?
 **Answer:**
 
 ```js
-const BlogContextProvider = ({ children }) => {
+const BlogPostsProvider = ({ children }) => {
   return (
     // the Provider gives access to the context to its children
     <BlogContext.Provider>{children}</BlogContext.Provider>
@@ -63,7 +63,7 @@ const BlogContextProvider = ({ children }) => {
 4. Fetch all **blog posts** and store in **state**
 
 ```js
-const BlogContextProvider = ({ children }) => {
+const BlogPostsProvider = ({ children }) => {
   const [blogPosts, setBlogPosts] = useState([]);
   const fetchBlogPosts = async () => {
     try {
@@ -87,7 +87,7 @@ const BlogContextProvider = ({ children }) => {
 ```
 
 5. Give the `BlogContext.Provider` a value assigned to the blogPosts array
-6. Export `BlogContext` and `BlogContextProvider`
+6. Export `BlogContext` and `BlogPostsProvider`
 7. Create a **custom hook** called `useBlogContext` to use the `BlogContext`
 
 **`BlogContext.js` FINAL CODE**
@@ -98,7 +98,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 // create context
 const BlogContext = createContext();
 
-const BlogContextProvider = ({ children }) => {
+const BlogPostsProvider = ({ children }) => {
   const [blogPosts, setBlogPosts] = useState([]);
   const fetchBlogPosts = async () => {
     try {
@@ -132,21 +132,21 @@ const useBlogContext = () => {
   return context;
 };
 
-export { BlogContext, BlogContextProvider, useBlogContext };
+export { BlogContext, BlogPostsProvider, useBlogContext };
 ```
 
 8. Import `BlogContextProfider` to `App.js` and wrap the components you want to have access to the **blog posts**
 
 ```js
-import { BlogContextProvider } from "./contexts/blog/BlogContext";
+import { BlogPostsProvider } from "./contexts/blog/BlogContext";
 ...
 function App() {
   return (
     <>
       <NavBar />
-      <BlogContextProvider>
+      <BlogPostsProvider>
         <CardsContainer />
-      </BlogContextProvider>
+      </BlogPostsProvider>
     </>
   );
 }
