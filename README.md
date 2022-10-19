@@ -1,5 +1,14 @@
 # Intro to `useContext` and `useReducer` Hooks
 
+**Context**
+
+Provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+There's a built-in Hook provided by React called `useContext` that allows any descendent component to gain access to the value on a Context Provider. It also subscribes the component that uses `useContext` to be re-rendered anytime the value of the context changes.
+
+
+**Reducer**
+
 ## Project Setup
 
 - Install dependencies by running `npm i` at the project root
@@ -146,6 +155,6 @@ function App() {
 import { useBlogContext } from "../../contexts/blog/BlogContext";
 ```
 
-## `UserContext.js` Instructions/Script
+## Instructions/Script
 
 1.
