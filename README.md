@@ -138,6 +138,14 @@ function App() {
 }
 ```
 
+9. Erase the fetch logic inside `CardsContainer.jsx`
+
+10. Import the `useBlogContext` Hook to `CardsContainer.jsx`
+
+```js
+import { useBlogContext } from "../../contexts/blog/BlogContext";
+```
+
 ## `UserContext.js` Instructions/Script
 
 1.
