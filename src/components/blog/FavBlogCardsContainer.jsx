@@ -3,10 +3,8 @@ import { useFavBlogPostsContext } from "../../contexts/favBlog/FavBlogContext";
 import BlogCard from "./BlogCard";
 
 const FavBlogCardsContainer = ({ sectionTitle }) => {
-  const { favBlogs, dispatch } = useFavBlogPostsContext();
-  const handleRemoveFav = (post) => {
-    dispatch({ type: "REMOVE_FAV_BLOG", payload: post });
-  };
+  const { favBlogs } = useFavBlogPostsContext();
+
   console.log("favBlogPosts in container", favBlogs);
   return (
     <Container className="w-100 mt-5 p-5 cards-container shadow">
@@ -16,7 +14,6 @@ const FavBlogCardsContainer = ({ sectionTitle }) => {
           blogPost={blogPost}
           key={blogPost.id}
           buttonText="Remove from favorites"
-          handleClick={handleRemoveFav}
         />
       ))}
     </Container>

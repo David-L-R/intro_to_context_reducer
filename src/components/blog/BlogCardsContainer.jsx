@@ -16,7 +16,6 @@ const BlogCardsContainer = ({ sectionTitle }) => {
         <BlogCard
           blogPost={blogPost}
           key={blogPost.id}
-          buttonText="Add to favorites"
           handleClick={handleAddFav}
         />
       ))}
