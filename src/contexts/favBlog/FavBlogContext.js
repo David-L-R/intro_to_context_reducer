@@ -26,8 +26,8 @@ function favBlogReducer(state, action) {
 const FavBlogPostsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(favBlogReducer, initialState);
   const value = { favBlogs: state.favBlogs, dispatch };
-  console.log("state in favblogpost context", state);
-  return (
+
+    return (
     // the Provider gives access to the context to its children
 
     <FavBlogPostsContext.Provider value={value}>

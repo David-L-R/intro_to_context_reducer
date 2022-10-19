@@ -2,9 +2,6 @@ import { Card, Button } from "react-bootstrap";
 import { toTitleCase, toSentenceCase } from "../../utils";
 const BlogCard = ({ blogPost, buttonText, handleClick }) => {
   const { title, body, userId } = blogPost;
-  const onClick = () => {
-    handleClick(blogPost);
-  };
   return (
     <Card className="m-1" style={{ width: "18rem" }}>
       <Card.Body>
@@ -13,7 +10,7 @@ const BlogCard = ({ blogPost, buttonText, handleClick }) => {
           User Number {userId}
         </Card.Subtitle>
         <Card.Text>{toSentenceCase(body)}</Card.Text>
-        <Button variant="primary" onClick={onClick}>
+        <Button variant="primary" onClick={() => handleClick(blogPost)}>
           {buttonText}
         </Button>
       </Card.Body>
