@@ -5,18 +5,17 @@ const BlogContext = createContext();
 
 const BlogContextProvider = ({ children }) => {
   const [blogPosts, setBlogPosts] = useState([]);
-
+  const fetchBlogPosts = async () => {
+    try {
+      const response = await fetch("http://localhost:3002/posts/");
+      const blogPosts = await response.json();
+      console.log(blogPosts);
+      setBlogPosts(blogPosts);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        const response = await fetch("http://localhost:3002/posts/");
-        const blogPosts = await response.json();
-        setBlogPosts(blogPosts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     fetchBlogPosts();
   }, []);
 
