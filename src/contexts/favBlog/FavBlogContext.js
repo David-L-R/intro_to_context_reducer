@@ -6,28 +6,30 @@ const FavBlogPostsContext = createContext();
 const initialState = { favBlogs: [] };
 
 function favBlogReducer(state, action) {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case "ADD_FAV_BLOG": {
-      if (!state.favBlogs.find((blog) => blog.id === action.payload.id)) {
-        return { favBlogs: [...state.favBlogs, action.payload] };
+      if (!state.favBlogs.find((blog) => blog.id === payload.id)) {
+        return { favBlogs: [...state.favBlogs, payload] };
       }
     }
     case "REMOVE_FAV_BLOG": {
       const newFavBlogArr = state.favBlogs.filter(
-        (blog) => blog.id !== action.payload.id
+        (blog) => blog.id !== payload.id
       );
       return { favBlogs: newFavBlogArr };
     }
     default: {
-      throw new Error(`Unhandled action type: ${action.type}`);
+      throw new Error(`Unhandled action type: ${type}`);
     }
   }
 }
+
 const FavBlogPostsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(favBlogReducer, initialState);
   const value = { favBlogs: state.favBlogs, dispatch };
 
-    return (
+  return (
     // the Provider gives access to the context to its children
 
     <FavBlogPostsContext.Provider value={value}>
