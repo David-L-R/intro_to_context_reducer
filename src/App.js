@@ -6,10 +6,12 @@ import CardsContainer from "./components/blog/CardsContainer";
 
 function App() {
   return (
-    <BlogContextProvider>
+    <>
       <NavBar />
-      <CardsContainer />
-    </BlogContextProvider>
+      <BlogContextProvider>
+        <CardsContainer />
+      </BlogContextProvider>
+    </>
   );
 }
 
