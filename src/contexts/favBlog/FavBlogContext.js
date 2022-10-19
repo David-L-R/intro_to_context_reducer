@@ -7,16 +7,15 @@ const initialState = { favBlogs: [] };
 
 function favBlogReducer(state, action) {
   const { type, payload } = action;
+  const { favBlogs } = state;
   switch (type) {
     case "ADD_FAV_BLOG": {
-      if (!state.favBlogs.find((blog) => blog.id === payload.id)) {
-        return { favBlogs: [...state.favBlogs, payload] };
+      if (!favBlogs.find((blog) => blog.id === payload.id)) {
+        return { favBlogs: [...favBlogs, payload] };
       }
     }
     case "REMOVE_FAV_BLOG": {
-      const newFavBlogArr = state.favBlogs.filter(
-        (blog) => blog.id !== payload.id
-      );
+      const newFavBlogArr = favBlogs.filter((blog) => blog.id !== payload.id);
       return { favBlogs: newFavBlogArr };
     }
     default: {
