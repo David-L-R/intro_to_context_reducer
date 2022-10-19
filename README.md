@@ -12,7 +12,7 @@ A Reducer takes a state and an action as arguments, and it returns a new state.
 
 `useReducer` is a React hook which enables the use of the Reducer pattern. `useReducer` is generally used in place of useState in a component.
 
-When we implement the `useReducer` hook, we gain access to a function called dispatch. Dispatch takes Actions, and send them to the Reducer. Dispatch calls the Reducer with the correct state. 
+When we implement the `useReducer` hook, we gain access to a function called dispatch. Dispatch takes Actions, and send them to the Reducer. Dispatch calls the Reducer with the correct state.
 
 ## Project Setup
 
@@ -69,7 +69,7 @@ const BlogContextProvider = ({ children }) => {
     try {
       const response = await fetch("http://localhost:3002/posts/");
       const blogPosts = await response.json();
-      console.log(blogPosts);
+
       setBlogPosts(blogPosts);
     } catch (error) {
       console.log(error);
@@ -104,7 +104,7 @@ const BlogContextProvider = ({ children }) => {
     try {
       const response = await fetch("http://localhost:3002/posts/");
       const blogPosts = await response.json();
-      console.log(blogPosts);
+
       setBlogPosts(blogPosts);
     } catch (error) {
       console.log(error);

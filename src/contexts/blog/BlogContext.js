@@ -9,7 +9,7 @@ const BlogContextProvider = ({ children }) => {
     try {
       const response = await fetch("http://localhost:3002/posts/");
       const blogPosts = await response.json();
-      console.log(blogPosts);
+
       setBlogPosts(blogPosts);
     } catch (error) {
       console.log(error);
