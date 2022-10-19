@@ -7,7 +7,7 @@ const FavBlogCardsContainer = ({ sectionTitle }) => {
   return (
     <Container className="w-100 mt-5 p-5 cards-container shadow">
       <h1 className="w-100 text-center">{sectionTitle}</h1>
-      {!!favBlogPosts ? (
+      {!!favBlogPosts?.length ? (
         favBlogPosts.map((blogPost) => (
           <BlogCard {...blogPost} key={blogPost.id} />
         ))
