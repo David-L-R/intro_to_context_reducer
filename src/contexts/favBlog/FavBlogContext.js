@@ -9,11 +9,11 @@ function favBlogReducer(state, action) {
   const { type, payload } = action;
   const { favBlogs } = state;
   switch (type) {
-    case "ADD_FAV_BLOG": {
+    case "ADD_FAV_BLOG":
       if (!favBlogs.find((blog) => blog.id === payload.id)) {
         return { favBlogs: [...favBlogs, payload] };
       }
-    }
+      break;
     case "REMOVE_FAV_BLOG": {
       const newFavBlogArr = favBlogs.filter((blog) => blog.id !== payload.id);
       return { favBlogs: newFavBlogArr };
